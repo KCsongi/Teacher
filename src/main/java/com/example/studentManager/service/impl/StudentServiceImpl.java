@@ -52,15 +52,11 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteGrade(Long studentId, Long gradeId) {
-        // Keresd meg a diákot az id alapján
         Student student = studentRepository.findById(studentId).orElse(null);
 
 
         if (student != null) {
-            // Töröld az érdemjegyet a diák érdemjegyei közül
             student.deleteGradeById(gradeId);
-//dfhf
-            // Frissítsd az adatbázisban
             studentRepository.save(student);
         }
     }
