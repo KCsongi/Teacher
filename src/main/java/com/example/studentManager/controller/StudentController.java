@@ -89,13 +89,10 @@ public class StudentController {
 
     @PostMapping("/students/details/{id}/addGrade")
     public String addGradeToStudent(@PathVariable Long id, @RequestParam Integer grade) {
-        // Keresd meg a diákot az adatbázisból az id alapján
+
         Student student = studentService.getStudentById(id);
 
-        // Hozzáadod az új érdemjegyet a diák érdemjegylistájához
         student.addGrade(grade);
-
-        // Frissítsd az adatbázisban
         studentService.updateStudent(student);
         System.out.println("id " + id + " grade " + grade + "..."+ student.getGrades());
 

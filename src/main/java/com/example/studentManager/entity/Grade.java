@@ -2,8 +2,6 @@ package com.example.studentManager.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
-
 @Entity
 @Table(name = "grade")
 public class Grade {

@@ -98,7 +98,6 @@ public class Student {
 
     public void deleteGrade(Grade grade) {
         // Töröld az érdemjegyet a diák érdemjegylistájáról
-        //grades.removeIf(g -> g.getGrade().equals(grade));
         grades.remove(grade);
     }
 
