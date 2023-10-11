@@ -1,0 +1,16 @@
+.form-group{
+    border: 2px solid gray; /* Itt a keret vastagságát és színét állíthatod be */
+    padding: 5px; /* Opcionális: adhatsz távolságot a keret és a szöveg között */
+}
+.details-body {
+      background: linear-gradient(to right, #FFA500, #FF4500); /* Átlátszó piros háttérszín */
+ }
+.create-body {
+      background: linear-gradient(to right, #FFA500, #FF4500);
+}
+.edit-body {
+      background: linear-gradient(to right, #FFA500, #FF4500);
+}
+.students-body {
+      background: linear-gradient(to right, #FFA500, #FF4500);
+}

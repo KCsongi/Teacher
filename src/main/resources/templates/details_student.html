@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Manager System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"/>
+    <link rel="icon" type="image/x-icon" th:href="@{/favicon.png}"/>
+</head>
+<body class="details-body">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">|Class Room|</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}">My Class</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center" th:text="${student.firstName} + ' adatai'">Student Name</h1>
+            <div class="card-body">
+                <form th:action="@{/students/details/{id}/addGrade (id=${student.id})}" method="POST" >
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label>First Name:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                            th:text="${student.firstName}"></span></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- További űrlapelemek ide -->
+                    </table>
+
+                    <td>
+                        <div class="form-group">
+                            <label for="grade">Érdemjegy:</label>
+                            <select class="form-control" id="grade" name="grade">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </td>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+
+
+                    <!--<table class="table" id="gradeTable">
+                        <thead>
+                        <tr>
+                            <th>Érdemjegy</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="i : ${grades}">
+                            <td th:text="${i.grade}"></td>
+                        </tr>
+                        </tbody>
+                    </table> -->
+
+                    <table class="table" id="gradeTable">
+                        <thead>
+                        <tr>
+                            <th>Érdemjegy</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="i : ${grades}">
+                            <td th:text="${i.grade}"></td>
+                            <td>
+                                <a th:href="@{/students/details/{id} (id=${student.id})}"
+                                   class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
